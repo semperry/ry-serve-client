@@ -6,7 +6,11 @@ export default function Header(props) {
 	const { handleLogout } = useContext(UserContext);
 
 	return (
-		<div>
+		<div
+			style={{
+				display: props.isVideoShowing && "none",
+			}}
+		>
 			<div>Logo</div>
 			<div>Link Link Link</div>
 			<div>Profile info</div>
