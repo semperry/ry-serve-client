@@ -1,13 +1,15 @@
 import { useContext } from "react";
 
-import { UserContext } from "../Components/Auth/DefaultContainer";
+import { UserContext } from "../Components/UserProvider";
 
 const withAuth = (authorizedRoles) => (ChildComponent) => (props) => {
-	const { state } = useContext(UserContext);
+	const { user } = useContext(UserContext);
 
-	if (authorizedRoles.includes(state.role)) {
+	if (authorizedRoles.includes(user?.role)) {
+		console.log("Authorized", user);
 		return <ChildComponent {...props} />;
 	} else {
+		console.log("UnAuthorized", user);
 		return "";
 	}
 };
