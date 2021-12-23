@@ -1,0 +1,27 @@
+body {
+	margin: 0;
+	font-family: sans-serif;
+}
+
+.error-text-wrapper {
+	color: $netflix-red;
+	font-weight: 700;
+	margin-top: 10px;
+	opacity: 0.75;
+}
+
+.btn {
+	position: relative;
+	text-decoration: none;
+	vertical-align: middle;
+	cursor: pointer;
+	letter-spacing: 0.1px;
+	border-radius: 2px;
+	font-weight: 400;
+	user-select: none;
+	border: 0;
+}
+
+.btn-submit {
+	color: #fff;
+}

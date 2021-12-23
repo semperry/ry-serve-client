@@ -1,6 +1,6 @@
 import { Route, Switch } from "react-router-dom";
 
-import Login from "./Components/Pages/Login";
+import Login from "../Pages/Login";
 
 export default function LoginContainer(props) {
 	return (

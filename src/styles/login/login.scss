@@ -1,0 +1,87 @@
+.login-wrapper {
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	.login-wrapper-background {
+		position: absolute;
+		background-position: center;
+		background-size: cover;
+		height: 100%;
+		min-height: 100vh;
+		z-index: -1;
+		width: 100%;
+		overflow: hidden;
+		filter: brightness(0.5);
+	}
+
+	.login-header {
+		position: relative;
+		left: 0;
+		top: 0;
+		width: 100%;
+		background: linear-gradient(
+			to bottom,
+			rgba(0, 0, 0, 0.75) 0,
+			rgba(0, 0, 0, 0) 100%
+		);
+		color: $netflix-red;
+
+		h1 {
+			position: relative;
+			left: 15px;
+		}
+	}
+
+	.login-form-container {
+		min-height: 600px;
+		padding: 60px 68px 40px;
+		background-color: rgba(0, 0, 0, 0.75);
+		display: flex;
+		flex-direction: column;
+		min-width: 350px;
+		border-radius: 10px;
+		border: 0;
+
+		h1 {
+			color: #fff;
+			font-size: 32px;
+			font-weight: 700;
+			margin-bottom: 28px;
+		}
+
+		.login-input {
+			padding-bottom: 16px;
+			max-width: 100%;
+
+			input {
+				border-radius: 4px;
+				border: 0px solid black;
+				outline: none;
+				width: 100%;
+				height: 3.25rem;
+			}
+
+			.place-label {
+				// color: #000;
+				color: #fff;
+				top: 12px;
+				font-size: 11px;
+				left: 20px;
+			}
+		}
+
+		.login-btn {
+			background: $netflix-red;
+			width: 100%;
+			max-width: 100%;
+			border-radius: 4px;
+			font-size: 16px;
+			font-weight: 700;
+			margin: 24px 0 12px;
+			padding: 16px;
+		}
+	}
+}

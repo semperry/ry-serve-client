@@ -8,7 +8,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 
 import { UserContext } from "./Components/UserProvider";
 import DefaultContainer from "./Components/Auth/DefaultContainer";
-import LoginContainer from "./LoginContainer";
+import LoginContainer from "./Components/Auth/LoginContainer";
 
 function App() {
 	const { user } = useContext(UserContext);

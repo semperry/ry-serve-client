@@ -1,6 +1,8 @@
 import { useContext, useState } from "react";
 
+import Footer from "../Navigation/Footer";
 import { UserContext } from "../UserProvider";
+import bgImage from "../../assets/images/nfloginbground.jpg";
 
 function Login(props) {
 	const { setUser, setAuthIsLoading } = useContext(UserContext);
@@ -37,40 +39,52 @@ function Login(props) {
 	};
 
 	return (
-		<>
-			<div className="login-header">RyFlix Logo</div>
+		<div className="login-wrapper">
+			<div className="login-wrapper-background">
+				<img src={bgImage} alt="Background" />
+			</div>
+			<div className="login-header">
+				<h1>RyServe</h1>
+			</div>
 
 			<div className="login-form-container">
-				<div>Sign In</div>
-				<div>
-					<form onSubmit={handleSubmit}>
-						<div>
-							<input
-								type="text"
-								name="userLoginId"
-								onChange={(e) => setEmailOrUser(e.target.value)}
-								autoComplete="email"
-							/>
-							<label htmlFor="userLoginId">Email or Username</label>
-						</div>
+				<h1>Sign In</h1>
+				<form className="login-form" onSubmit={handleSubmit}>
+					<div className="login-input">
+						<input
+							type="text"
+							name="userLoginId"
+							onChange={(e) => setEmailOrUser(e.target.value)}
+							autoComplete="email"
+							placeholder="Email or Username"
+						/>
+						{/* <label className="place-label" htmlFor="userLoginId">
+							Email or Username
+						</label> */}
+					</div>
 
-						<div>
-							<input
-								type="password"
-								name="password"
-								onChange={(e) => setPassword(e.target.value)}
-								autoComplete="password"
-							/>
-							<label htmlFor="password">Email or Username</label>
-							<div className="error-text-wrapper">{errorText}</div>
-						</div>
-						<div>
-							<button type="submit">Sign In</button>
-						</div>
-					</form>
-				</div>
+					<div className="login-input">
+						<input
+							type="password"
+							name="password"
+							onChange={(e) => setPassword(e.target.value)}
+							autoComplete="password"
+							placeholder="Password"
+						/>
+						{/* <label className="place-label" htmlFor="password">
+							Password
+						</label> */}
+						<div className="error-text-wrapper">{errorText}</div>
+					</div>
+
+					<button className="btn login-btn btn-submit" type="submit">
+						Sign In
+					</button>
+				</form>
 			</div>
-		</>
+
+			<Footer />
+		</div>
 	);
 }
 
