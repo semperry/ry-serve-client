@@ -7,7 +7,6 @@ const UserProvider = ({ children }) => {
 	const [user, setUser] = useState(null);
 	const [authIsLoading, setAuthIsLoading] = useState(true);
 	const history = useHistory();
-	const userRef = useRef(null);
 
 	const checkLogin = useCallback(() => {
 		fetch("http://localhost:4000/api/v1/auth/cl", {
@@ -18,9 +17,8 @@ const UserProvider = ({ children }) => {
 			.then((data) => {
 				if (data.user) {
 					setUser(data.user);
-					userRef.current = true;
 				} else {
-					userRef.current = null;
+					setUser(null);
 				}
 				setAuthIsLoading(false);
 			})
@@ -28,7 +26,6 @@ const UserProvider = ({ children }) => {
 				console.error("Check Login Error: ", err);
 				setAuthIsLoading(false);
 				setUser(null);
-				userRef.current = null;
 			});
 	}, []);
 
@@ -41,6 +38,7 @@ const UserProvider = ({ children }) => {
 		})
 			.then(() => {
 				setAuthIsLoading(false);
+				setUser(null);
 				history.push("/login");
 			})
 			.catch((err) => {
@@ -59,11 +57,8 @@ const UserProvider = ({ children }) => {
 	};
 
 	useEffect(() => {
-		if (!userRef.current) {
+		if (!user) {
 			checkLogin();
-		} else {
-			setUser(null);
-			setAuthIsLoading(false);
 		}
 	}, [checkLogin]);
 

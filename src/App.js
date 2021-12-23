@@ -1,7 +1,8 @@
 // TODO:
 // Admin Page
-// CRUD Videos (How do we upload as well?)
+// CRUD Videos
 // Filter Genres
+// Truncate descriptions
 import { useContext } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
