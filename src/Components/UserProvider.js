@@ -1,4 +1,4 @@
-import { useEffect, useState, createContext, useRef, useCallback } from "react";
+import { useEffect, useState, createContext, useCallback } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 export const UserContext = createContext();
@@ -17,6 +17,7 @@ const UserProvider = ({ children }) => {
 			.then((data) => {
 				if (data.user) {
 					setUser(data.user);
+					history.push("/browse");
 				} else {
 					setUser(null);
 				}
@@ -27,7 +28,7 @@ const UserProvider = ({ children }) => {
 				setAuthIsLoading(false);
 				setUser(null);
 			});
-	}, []);
+	}, [history]);
 
 	const handleLogout = () => {
 		setAuthIsLoading(true);
@@ -57,9 +58,7 @@ const UserProvider = ({ children }) => {
 	};
 
 	useEffect(() => {
-		if (!user) {
-			checkLogin();
-		}
+		checkLogin();
 	}, [checkLogin]);
 
 	return (

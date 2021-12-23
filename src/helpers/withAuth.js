@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { Redirect } from "react-router-dom";
 
 import { UserContext } from "../Components/UserProvider";
-import NoMatch from "../Components/Pages/NoMatch";
 
 const withAuth =
 	(authorizedRoles) =>

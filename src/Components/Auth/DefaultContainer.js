@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 import Header from "../Navigation/Header";
 import Browse from "../Pages/Browse";

@@ -25,7 +25,7 @@ export default function Browse() {
 			return (
 				<div
 					key={vid._id}
-					onClick={() => history.push(`/media/${vid._id}`)}
+					onClick={() => history.push(`/stream/${vid._id}`)}
 					style={{
 						width: "150px",
 						height: "200px",
