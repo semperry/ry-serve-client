@@ -19,7 +19,9 @@ export default function Header(props) {
 				<AdminUser>
 					<Link to="/media/managment">Media Manager</Link>;
 				</AdminUser>
+				<Link to="/Shouldn'tMatch">Random</Link>
 			</div>
+
 			<div>Profile info</div>
 			{/* Temp */}
 			<button onClick={handleLogout}>Logout</button>

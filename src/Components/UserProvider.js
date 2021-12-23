@@ -1,5 +1,5 @@
 import { useEffect, useState, createContext, useCallback } from "react";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory } from "react-router-dom";
 
 export const UserContext = createContext();
 
@@ -9,6 +9,8 @@ const UserProvider = ({ children }) => {
 	const history = useHistory();
 
 	const checkLogin = useCallback(() => {
+		setAuthIsLoading(true);
+
 		fetch("http://localhost:4000/api/v1/auth/cl", {
 			method: "GET",
 			credentials: "include",
@@ -17,9 +19,10 @@ const UserProvider = ({ children }) => {
 			.then((data) => {
 				if (data.user) {
 					setUser(data.user);
-					history.push("/browse");
+					// history.push("/browse");
 				} else {
 					setUser(null);
+					history.push("/login");
 				}
 				setAuthIsLoading(false);
 			})

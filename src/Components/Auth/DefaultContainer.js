@@ -13,12 +13,7 @@ export default function DefaultContainer() {
 
 	return (
 		<div className="container">
-			<Route
-				path="/"
-				render={(iprops) => (
-					<Header {...iprops} isVideoShowing={isVideoShowing} />
-				)}
-			/>
+			<Header isVideoShowing={isVideoShowing} />
 
 			<div className="body-wrapper">
 				<Switch>
@@ -30,9 +25,14 @@ export default function DefaultContainer() {
 						)}
 					/>
 
-					<AdminUser withRedirect="/browse">
-						<Route to="/media/managment" component={MediaManager} />
-					</AdminUser>
+					<Route
+						path="/media/managment"
+						render={(props) => (
+							<AdminUser withRedirect="/browse">
+								<MediaManager {...props} />
+							</AdminUser>
+						)}
+					/>
 
 					<Route component={NoMatch} />
 				</Switch>

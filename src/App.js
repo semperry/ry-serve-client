@@ -3,23 +3,22 @@
 // CRUD Videos
 // Filter Genres
 // Truncate descriptions
-import { useContext } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
-import { UserContext } from "./Components/UserProvider";
 import DefaultContainer from "./Components/Auth/DefaultContainer";
 import LoginContainer from "./Components/Auth/LoginContainer";
+import { StandardUser } from "./helpers/userRoles";
 
 function App() {
-	const { user } = useContext(UserContext);
-
 	return (
 		<div className="App">
 			<Switch>
-				<Route exact path="/login" component={LoginContainer} />
+				<Route path="/login" component={LoginContainer} />
 				<Redirect exact from="/" to="/login" />
 
-				{user && <Route component={DefaultContainer} />}
+				<StandardUser>
+					<Route component={DefaultContainer} />
+				</StandardUser>
 			</Switch>
 		</div>
 	);

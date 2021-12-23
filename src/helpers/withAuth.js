@@ -8,7 +8,7 @@ const withAuth =
 	({ children, withRedirect }) => {
 		const { user } = useContext(UserContext);
 
-		if (authorizedRoles.includes(user.role)) {
+		if (authorizedRoles.includes(user?.role)) {
 			return children;
 		} else {
 			return withRedirect ? <Redirect to={withRedirect} /> : "";
