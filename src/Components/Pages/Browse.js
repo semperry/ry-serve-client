@@ -30,7 +30,7 @@ export default function Browse() {
 	}, []);
 
 	const renderMedia = () => {
-		return media.map((vid) => {
+		return media?.map((vid) => {
 			return <TitleCard key={vid._id} {...vid} />;
 		});
 	};
