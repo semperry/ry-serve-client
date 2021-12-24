@@ -1,0 +1,37 @@
+.body-wrapper {
+	position: relative;
+	min-height: 1000px;
+	z-index: 0;
+
+	.gallery-content-wrapper {
+		padding-top: 2rem;
+		margin: 0;
+		overflow: hidden;
+
+		.content {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-evenly;
+			margin: 0 50px;
+			align-items: center;
+
+			.title-card-wrapper {
+				display: flex;
+				flex-direction: column;
+				max-height: 240px;
+				max-width: 300px;
+
+				.title-card-image {
+					cursor: pointer;
+					width: auto;
+					height: 50%;
+				}
+				.title-card-title {
+					margin-top: 15px;
+				}
+				.title-card-description {
+				}
+			}
+		}
+	}
+}

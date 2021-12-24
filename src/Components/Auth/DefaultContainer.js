@@ -26,7 +26,7 @@ export default function DefaultContainer() {
 					/>
 
 					<Route
-						path="/media/managment"
+						path="/media/management"
 						render={(props) => (
 							<AdminUser withRedirect="/browse">
 								<MediaManager {...props} />

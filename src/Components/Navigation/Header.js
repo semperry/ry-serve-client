@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 
 import { UserContext } from "../UserProvider";
-import { AdminUser } from "../../helpers/userRoles";
+import { AdminUser, SuperUser } from "../../helpers/userRoles";
 import { stripLocation } from "../../helpers/util";
 
 export default function Header(props) {
@@ -20,10 +20,12 @@ export default function Header(props) {
 					<NavLink to="/browse">Home</NavLink>
 
 					<AdminUser>
-						<NavLink to="/media/managment">Media Manager</NavLink>
+						<NavLink to="/media/management">Media Manager</NavLink>
 					</AdminUser>
 
-					<NavLink to="/Shouldn'tMatch">Random</NavLink>
+					<SuperUser>
+						<NavLink to="/user/management">Users</NavLink>
+					</SuperUser>
 				</div>
 
 				<div className="header-settings-wrapper">

@@ -2,14 +2,16 @@
 TODO:
 Fetch Media Limiter
 Loading Component
+Categories
+Carousel
+Transitions
 */
 import { useCallback, useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
 
 import Footer from "../Navigation/Footer";
+import TitleCard from "../TitleCard";
 
 export default function Browse() {
-	const history = useHistory();
 	const [media, setMedia] = useState([]);
 
 	const getMedia = useCallback(() => {
@@ -29,26 +31,7 @@ export default function Browse() {
 
 	const renderMedia = () => {
 		return media.map((vid) => {
-			return (
-				<div
-					key={vid._id}
-					onClick={() => history.push(`/stream/${vid._id}`)}
-					style={{
-						width: "150px",
-						height: "200px",
-						cursor: "pointer",
-					}}
-				>
-					<div
-						style={{
-							backgroundImage: `url(${vid.titleImage})`,
-							height: "50%",
-						}}
-					/>
-					<div>{vid.title}</div>
-					<div>{vid.description}</div>
-				</div>
-			);
+			return <TitleCard {...vid} />;
 		});
 	};
 
@@ -57,8 +40,8 @@ export default function Browse() {
 	}, [getMedia]);
 
 	return (
-		<div>
-			<div>{renderMedia()}</div>
+		<div className="gallery-content-wrapper">
+			<div className="content">{renderMedia()}</div>
 			<Footer />
 		</div>
 	);
