@@ -1,11 +1,15 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-const useTracking = () => {
+const excludedRoutes = ["/", "/login", "/not-found"];
+
+const useTracking = (prev) => {
 	const { pathname } = useLocation();
 
 	useEffect(() => {
-		window.localStorage.setItem("lastPath", pathname);
+		if (!excludedRoutes.includes(pathname))
+			window.localStorage.setItem("lastPath", prev || pathname);
+		prev = null;
 	}, [pathname]);
 };
 

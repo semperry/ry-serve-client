@@ -20,7 +20,7 @@ const UserProvider = ({ children }) => {
 			.then((data) => {
 				if (data.user) {
 					setUser(data.user);
-					// history.push("/browse");
+					history.push(window.localStorage.getItem("lastPath" || "/"));
 				} else {
 					setUser(null);
 					history.push("/login");

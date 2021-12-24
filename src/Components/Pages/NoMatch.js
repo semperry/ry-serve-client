@@ -6,9 +6,11 @@ export default function NoMatch({ setShowHeader }) {
 	const location = useLocation();
 
 	useEffect(() => {
-		setShowHeader(false);
+		if (setShowHeader) {
+			setShowHeader(false);
 
-		return () => setShowHeader(true);
+			return () => setShowHeader(true);
+		}
 	}, [setShowHeader]);
 
 	return (
@@ -16,7 +18,7 @@ export default function NoMatch({ setShowHeader }) {
 			<div className="header">
 				<div
 					className="logo"
-					onClick={() => history.goBack()}
+					onClick={() => history.push("/")}
 					style={{ cursor: "pointer" }}
 				>
 					RyServe

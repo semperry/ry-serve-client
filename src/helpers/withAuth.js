@@ -12,7 +12,7 @@ const withAuth =
 		if (authorizedRoles.includes(user?.role)) {
 			return children;
 		} else {
-			return withRedirect ? <Redirect to="/not-found" /> : "";
+			return withRedirect ? <Redirect to="/" /> : "";
 		}
 	};
 
