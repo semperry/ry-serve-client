@@ -14,8 +14,9 @@ import TitleCard from "../TitleCard";
 export default function Browse() {
 	const [media, setMedia] = useState([]);
 
-	const getMedia = useCallback(() => {
-		return fetch("http://localhost:4000/media", {
+	const getMedia = useCallback(async (controller) => {
+		await fetch("http://localhost:4000/media", {
+			signal: controller.signal,
 			method: "GET",
 			credentials: "include",
 		})
@@ -24,7 +25,7 @@ export default function Browse() {
 				setMedia(data.media);
 			})
 			.catch((err) => {
-				console.log("Get Media Error: ", err);
+				if (!err.name === "AbortError") console.error("Get Media Error: ", err);
 			});
 	}, []);
 
@@ -35,11 +36,11 @@ export default function Browse() {
 	};
 
 	useEffect(() => {
-		let isSubscribed = true;
+		const abortController = new AbortController();
 
-		if (isSubscribed) getMedia();
+		getMedia(abortController);
 
-		return () => (isSubscribed = false);
+		return () => abortController.abort();
 	}, [getMedia]);
 
 	return (
