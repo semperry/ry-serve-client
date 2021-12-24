@@ -6,9 +6,9 @@ export default function NoMatch(props) {
 	const location = useLocation();
 
 	useEffect(() => {
-		props.setIsVideoShowing(true);
+		props.setShowHeader(false);
 
-		return () => props.setIsVideoShowing(false);
+		return () => props.setShowHeader(true);
 	}, []);
 
 	return (

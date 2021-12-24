@@ -15,3 +15,64 @@
 		left: 15px;
 	}
 }
+
+.app-header {
+	display: flex;
+	align-items: center;
+
+	.header-logo {
+		color: $netflix-red;
+		margin-left: 35px;
+
+		h1 {
+			font-size: 1.75em;
+			cursor: pointer;
+		}
+	}
+
+	a {
+		font-size: 0.75rem;
+		font-weight: normal;
+		transition: 0.3s ease-in-out all;
+		color: $supporting-text;
+
+		&:hover {
+			color: inherit;
+			opacity: 0.7;
+		}
+	}
+
+	.active {
+		color: inherit;
+		font-weight: bold;
+
+		&:hover {
+			cursor: default;
+			color: inherit;
+			opacity: 1;
+		}
+	}
+
+	.header-link-wrapper {
+		display: flex;
+		align-items: center;
+		margin-left: 15px;
+		max-width: 50%;
+		width: 15%;
+		justify-content: space-around;
+	}
+
+	.header-settings-wrapper {
+		display: flex;
+		align-items: center;
+		flex-grow: 1;
+		justify-content: flex-end;
+		height: 100%;
+		margin-right: 25px;
+
+		.nav-item {
+			margin-right: 25px;
+			cursor: pointer;
+		}
+	}
+}

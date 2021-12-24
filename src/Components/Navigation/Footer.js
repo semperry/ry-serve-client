@@ -1,7 +1,11 @@
-export default function Footer() {
+export default function Footer({ selector }) {
 	return (
-		<div className="site-footer-wrapper">
-			<div className="site-footer"></div>
+		<div className={`${selector}-footer-wrapper`}>
+			<div className={`${selector}-footer`}></div>
 		</div>
 	);
 }
+
+Footer.defaultProps = {
+	selector: "member",
+};

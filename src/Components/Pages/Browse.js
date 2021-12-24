@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
+import Footer from "../Navigation/Footer";
+
 export default function Browse() {
 	const history = useHistory();
 	const [media, setMedia] = useState([]);
@@ -53,6 +55,7 @@ export default function Browse() {
 		<div>
 			<h1>Browse Media</h1>
 			<div>{renderMedia()}</div>
+			<Footer />
 		</div>
 	);
 }

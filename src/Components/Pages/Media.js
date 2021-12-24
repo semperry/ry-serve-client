@@ -7,9 +7,9 @@ function Media(props) {
 	const { id } = useParams();
 
 	useEffect(() => {
-		props.setIsVideoShowing(true);
+		props.setShowHeader(false);
 
-		return () => props.setIsVideoShowing(false);
+		return () => props.setShowHeader(true);
 	});
 
 	return <Video url={`http://localhost:4000/media/stream/${id}`} />;

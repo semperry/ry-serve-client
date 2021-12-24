@@ -9,11 +9,11 @@ import NoMatch from "../Pages/NoMatch";
 import { AdminUser } from "../../helpers/userRoles";
 
 export default function DefaultContainer() {
-	const [isVideoShowing, setIsVideoShowing] = useState(false);
+	const [showHeader, setShowHeader] = useState(true);
 
 	return (
 		<div className="container">
-			<Header isVideoShowing={isVideoShowing} />
+			<Header showHeader={showHeader} />
 
 			<div className="body-wrapper">
 				<Switch>
@@ -21,7 +21,7 @@ export default function DefaultContainer() {
 					<Route
 						path="/stream/:id"
 						render={(props) => (
-							<Media {...props} setIsVideoShowing={setIsVideoShowing} />
+							<Media {...props} setShowHeader={setShowHeader} />
 						)}
 					/>
 
@@ -36,7 +36,7 @@ export default function DefaultContainer() {
 
 					<Route
 						render={(props) => (
-							<NoMatch {...props} setIsVideoShowing={setIsVideoShowing} />
+							<NoMatch {...props} setShowHeader={setShowHeader} />
 						)}
 					/>
 				</Switch>
