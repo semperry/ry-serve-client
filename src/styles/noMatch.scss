@@ -1,0 +1,104 @@
+.error-page {
+	font-size: 0.75vw;
+	line-height: 1.2;
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+
+	.header {
+		position: fixed;
+		left: 0;
+		top: 0;
+		right: 0;
+		height: 68px;
+		background-color: black;
+		z-index: 20;
+		padding: 0 45px;
+
+		.logo {
+			position: absolute;
+			top: 22px;
+			left: 40px;
+			color: $netflix-red;
+			font-size: 25px;
+			font-weight: 700;
+		}
+	}
+
+	.content {
+		text-shadow: 1px 1px 4px $supporting-text;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		overflow: hidden;
+		position: fixed;
+		user-select: none;
+		background-image: url("../assets/images/404.jpg");
+		background-position: center;
+		background-size: cover;
+		background-attachment: fixed;
+		background-repeat: no-repeat;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		top: 0;
+
+		h1 {
+			color: inherit;
+			font-size: 6em;
+			font-weight: 700;
+			margin-bottom: 2vw;
+			margin-top: 0;
+			z-index: 1;
+		}
+
+		p {
+			color: inherit;
+			font-size: 2.2em;
+			font-weight: 300;
+			margin-top: 0;
+		}
+
+		.buttons {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			button {
+				transition: 0.1s ease-in-out all;
+				padding: 0.5rem 3rem;
+				border-radius: 5px;
+				background-color: white;
+				color: black;
+				align-items: center;
+				appearance: none;
+				opacity: 1;
+				will-change: background-color, color;
+				word-break: break-word;
+				white-space: nowrap;
+				font-size: 1.6rem;
+				font-weight: 600;
+
+				&:hover {
+					opacity: 0.7;
+				}
+			}
+		}
+		.error-status {
+			align-items: flex-end;
+			display: flex;
+			justify-content: center;
+			margin-top: 2em;
+			span {
+				border-left: 2px solid $netflix-red;
+				font-size: 2.4em;
+				font-weight: 100;
+				letter-spacing: 0.1em;
+				line-height: 2.2em;
+				padding: 0 1vw;
+			}
+		}
+	}
+}

@@ -34,7 +34,11 @@ export default function DefaultContainer() {
 						)}
 					/>
 
-					<Route component={NoMatch} />
+					<Route
+						render={(props) => (
+							<NoMatch {...props} setIsVideoShowing={setIsVideoShowing} />
+						)}
+					/>
 				</Switch>
 			</div>
 		</div>
