@@ -1,3 +1,8 @@
+/* 
+TODO:
+Fetch Media Limiter
+Loading Component
+*/
 import { useCallback, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
@@ -53,7 +58,6 @@ export default function Browse() {
 
 	return (
 		<div>
-			<h1>Browse Media</h1>
 			<div>{renderMedia()}</div>
 			<Footer />
 		</div>

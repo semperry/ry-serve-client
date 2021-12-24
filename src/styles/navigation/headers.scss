@@ -76,3 +76,40 @@
 		}
 	}
 }
+
+.sub-header {
+	height: 68px;
+	position: relative;
+	font-family: "Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+	.sub-header-wrapper {
+		padding: 0 35px;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		display: flex;
+		align-items: center;
+
+		.dynamic-header {
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+			margin: 0;
+			min-height: 0;
+			padding: 0;
+			flex-grow: 1;
+			align-self: flex-start;
+
+			.header-title {
+				font-size: 1.5rem;
+				display: inline-block;
+				margin-right: 20px;
+				line-height: 36px;
+				font-weight: normal;
+				letter-spacing: 1.3px;
+			}
+		}
+	}
+}

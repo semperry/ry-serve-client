@@ -5,7 +5,6 @@ function MediaManager() {
 	return (
 		<AdminUser withRedirect="/no-match">
 			<div>
-				<h1>Media Manager</h1>
 				<FileUpload />
 			</div>
 		</AdminUser>
