@@ -14,11 +14,11 @@ function App() {
 		<div className="App">
 			<Switch>
 				<Route path="/login" component={LoginContainer} />
-				<Redirect exact from="/" to="/login" />
 
-				<StandardUser>
+				<StandardUser withRedirect>
 					<Route component={DefaultContainer} />
 				</StandardUser>
+				<Redirect exact from="/" to="/login" />
 			</Switch>
 		</div>
 	);

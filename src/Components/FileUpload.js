@@ -38,16 +38,12 @@ function FileUpload() {
 		}
 
 		try {
-			const res = await axios.post(
-				"http://localhost:4000/media/upload-video",
-				formData,
-				{
-					withCredentials: true,
-					headers: {
-						"Content-Type": "multipart/form-data",
-					},
-				}
-			);
+			await axios.post("http://localhost:4000/media/upload-video", formData, {
+				withCredentials: true,
+				headers: {
+					"Content-Type": "multipart/form-data",
+				},
+			});
 		} catch (error) {
 			console.error(error);
 		}

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 import Header from "../Navigation/Header";
 import Browse from "../Pages/Browse";
@@ -18,6 +18,8 @@ export default function DefaultContainer() {
 			<div className="body-wrapper">
 				<Switch>
 					<Route path="/browse" component={Browse} />
+					<Redirect exact from="/" to="/browse" />
+
 					<Route
 						path="/stream/:id"
 						render={(props) => (
@@ -28,7 +30,7 @@ export default function DefaultContainer() {
 					<Route
 						path="/media/management"
 						render={(props) => (
-							<AdminUser withRedirect="/browse">
+							<AdminUser withRedirect>
 								<MediaManager {...props} />
 							</AdminUser>
 						)}

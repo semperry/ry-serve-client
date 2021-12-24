@@ -1,15 +1,15 @@
 import { useEffect } from "react";
-import { Link, useHistory, useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
-export default function NoMatch(props) {
+export default function NoMatch({ setShowHeader }) {
 	const history = useHistory();
 	const location = useLocation();
 
 	useEffect(() => {
-		props.setShowHeader(false);
+		setShowHeader(false);
 
-		return () => props.setShowHeader(true);
-	}, []);
+		return () => setShowHeader(true);
+	}, [setShowHeader]);
 
 	return (
 		<div className="error-page">

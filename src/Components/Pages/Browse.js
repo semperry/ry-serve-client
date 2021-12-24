@@ -15,13 +15,12 @@ export default function Browse() {
 	const [media, setMedia] = useState([]);
 
 	const getMedia = useCallback(() => {
-		fetch("http://localhost:4000/media", {
+		return fetch("http://localhost:4000/media", {
 			method: "GET",
 			credentials: "include",
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				console.log(data);
 				setMedia(data.media);
 			})
 			.catch((err) => {
@@ -31,12 +30,16 @@ export default function Browse() {
 
 	const renderMedia = () => {
 		return media.map((vid) => {
-			return <TitleCard {...vid} />;
+			return <TitleCard key={vid._id} {...vid} />;
 		});
 	};
 
 	useEffect(() => {
-		getMedia();
+		let isSubscribed = true;
+
+		if (isSubscribed) getMedia();
+
+		return () => (isSubscribed = false);
 	}, [getMedia]);
 
 	return (

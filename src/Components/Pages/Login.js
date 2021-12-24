@@ -33,6 +33,7 @@ function Login(props) {
 			.then(() => props.history.push("/browse"))
 			.catch((err) => {
 				setErrorText("Oops, Something went wrong");
+				setUser(null);
 				setAuthIsLoading(false);
 				console.error("Login Error: ", err);
 			});
@@ -54,6 +55,7 @@ function Login(props) {
 						<input
 							type="text"
 							name="userLoginId"
+							value={emailOrUser}
 							onChange={(e) => setEmailOrUser(e.target.value)}
 							autoComplete="email"
 							placeholder="Email or Username"
